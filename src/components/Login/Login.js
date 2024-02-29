@@ -1,19 +1,20 @@
 // Import necessary React components
 import React, { useState } from 'react';
 import {Cookies} from 'react-cookie';
+
+import {Button, TextField} from '@mui/material';
+
+
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || ''
 const COMFY_URL = process.env.REACT_APP_COMFY_URL || ''
-
 const postHeaders = new Headers();
 postHeaders.append("Content-Type", "application/json");
-
 // Functional component for the login page
 const Login = () => {
   const cookies = new Cookies();
   // State to manage the input values
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
   const redirectToComfy = () => {
     // Replace '/new-url' with the desired URL
     window.open(COMFY_URL,"_self");
@@ -49,25 +50,17 @@ const Login = () => {
   return (
     <div>
         <form onSubmit={handleLogin}>
-          <label>
-            Username:  
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </label>
+
+          <div>
+          <TextField  label="Username" value={username} onChange={(e) => setUsername(e.target.value)} focused/>   
+           </div>
           <br />
-          <label>
-            Password:  
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
+          <div>
+           <TextField type="password" label="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+          </div>
           <br />
-          <button type="submit">Login</button>
+          
+          <Button type="submit" variant="contained">Login</Button>
         </form>
     </div>
   );
