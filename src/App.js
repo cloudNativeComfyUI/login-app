@@ -2,6 +2,8 @@ import './App.css';
 import Login from './components/Login/Login';
 import logo from './logo4.svg';
 import SignUp from './components/Signup/Signup';
+import ComfyUIApp from './components/ComfyUIApp/ComfyUIApp';
+// import IFrameComfy from './components/ComfyUIApp/IFrameComfy';
 import {
   BrowserRouter,
   Routes,
@@ -16,14 +18,19 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<Login/>} />
-            <Route path="/signup" element={<SignUp/>} />
-        </Routes>
-      </BrowserRouter>
+       
       </header>
+      <div className="App-body">
+        {/* <div>{IFrameComfy}</div> */}
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<ComfyUIApp/>} />
+                {/* <Route path="/signup" element={<SignUp/>} />
+                <Route path="/comfyuiapp" element={<ComfyUIApp/>} /> */}
+            </Routes>
+          </BrowserRouter>
+        </div>
     </div>
   );
 }
